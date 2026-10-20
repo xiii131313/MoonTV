@@ -37,7 +37,7 @@ export const SettingsButton: React.FC = () => {
 
       const savedEnableImageProxy = localStorage.getItem('enableImageProxy');
       const defaultImageProxy =
-        (window as any).RUNTIME_CONFIG?.IMAGE_PROXY || '';
+        (window as any).RUNTIME_CONFIG?.IMAGE_PROXY || '/api/image-proxy?url=';
       if (savedEnableImageProxy !== null) {
         setEnableImageProxy(JSON.parse(savedEnableImageProxy));
       } else if (defaultImageProxy) {
@@ -106,7 +106,7 @@ export const SettingsButton: React.FC = () => {
 
   // 重置所有设置为默认值
   const handleResetSettings = () => {
-    const defaultImageProxy = (window as any).RUNTIME_CONFIG?.IMAGE_PROXY || '';
+    const defaultImageProxy = (window as any).RUNTIME_CONFIG?.IMAGE_PROXY || '/api/image-proxy?url=';
 
     // 重置所有状态
     setDefaultAggregateSearch(true);
